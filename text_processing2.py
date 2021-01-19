@@ -31,7 +31,7 @@ def digits_to_words(input_string):
     num_string = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
     digit_string = ""
     for e in input_string:
-        if e >= '0' and e <= '9':
+        if ord(e) >= ord('0') and ord(e) <= ord('9'):
             digit_string += num_string[ord(e) - ord('0')] + ' '
     if len(digit_string) > 0:
         digit_string = digit_string[:-1]
@@ -79,9 +79,11 @@ def to_camel_case(underscore_str):
     for s in word_list:
         if len(s) == 0:
             continue
+        
         if len(camelcase_str) == 0:
             camelcase_str += s.lower()
             continue
+
         temp = s[0].upper()
         if(len(s) > 1):
             temp += s[1:].lower()
